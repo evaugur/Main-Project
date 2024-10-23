@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Neighborhood.unity
+    guid: 662f8bf049c07364ea82f50723fdb80c
+  - enabled: 1
+    path: Assets/Scenes/Old Lady's house.unity
+    guid: 1751ef186456c8a43b378a0bd59104f6
+  - enabled: 1
+    path: Assets/Scenes/Kid's house.unity
+    guid: 83a030e0f032355438b65388d80bf919
+  - enabled: 1
+    path: Assets/Scenes/Gamer Bro's house.unity
+    guid: 9d9b87a3c10e82d44be955f1b1ac409e
+  - enabled: 1
+    path: Assets/Scenes/Business Dad's house.unity
+    guid: ec72e1a3d7df0c0479627782fb8235fb
   m_configObjects: {}

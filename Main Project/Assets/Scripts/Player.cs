@@ -33,6 +33,18 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Old Lady's house");
         }
+        if (trigger.gameObject.tag == "Kid")
+        {
+            SceneManager.LoadScene("Kid's house");
+        }
+        if (trigger.gameObject.tag == "Business Dad")
+        {
+            SceneManager.LoadScene("Business Dad's house");
+        }
+        if (trigger.gameObject.tag == "Gamer")
+        {
+            SceneManager.LoadScene("Gamer Bro's house");
+        }
     }
 
 }
