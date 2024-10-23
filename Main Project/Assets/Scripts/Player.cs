@@ -45,6 +45,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Gamer Bro's house");
         }
+        if (trigger.gameObject.tag == "Neighborhood")
+        {
+            SceneManager.LoadScene("Neighborhood");
+        }
     }
 
 }
