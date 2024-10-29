@@ -12,30 +12,34 @@ public class Player : MonoBehaviour
 
     private Scene scene;
 
-    private void Awake()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        scene = SceneManager.GetActiveScene();
-    }
+   // private void Awake()
+    //{
+      //  SceneManager.sceneLoaded -= OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+        //scene = SceneManager.GetActiveScene();
+    //}
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+//    private void OnDestroy()
+  //  {
+    //    SceneManager.sceneLoaded -= OnSceneLoaded;
+    //}
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (!string.Equals(scene.path, this.scene.path)) return;
+    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    //{
+      //  if (!string.Equals(scene.path, this.scene.path)) return;
+      //
+       // rb = GetComponent<Rigidbody2D>();
+        //if(scene.Equals("Neighborhood"))
+        //{
+          //  Spawn();
+        //}
+    //}
 
-        rb = GetComponent<Rigidbody2D>();
-        Debug.Log(sceneSpawner.ToString());
-        Spawn();
-    }
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
