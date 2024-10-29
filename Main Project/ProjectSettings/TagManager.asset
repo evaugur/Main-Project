@@ -9,6 +9,7 @@ TagManager:
   - Gamer
   - Business Dad
   - Neighborhood
+  - Spawner
   layers:
   - Default
   - TransparentFX

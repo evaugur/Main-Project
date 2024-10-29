@@ -2,39 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class Player : MonoBehaviour
 {
 
     [SerializeField] float runSpeed = 5f;
     private Rigidbody2D rb;
-    private float sceneSpawner = 0;
 
     private Scene scene;
-
-   // private void Awake()
-    //{
-      //  SceneManager.sceneLoaded -= OnSceneLoaded;
-        //SceneManager.sceneLoaded += OnSceneLoaded;
-        //scene = SceneManager.GetActiveScene();
-    //}
-
-//    private void OnDestroy()
-  //  {
-    //    SceneManager.sceneLoaded -= OnSceneLoaded;
-    //}
-
-    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-      //  if (!string.Equals(scene.path, this.scene.path)) return;
-      //
-       // rb = GetComponent<Rigidbody2D>();
-        //if(scene.Equals("Neighborhood"))
-        //{
-          //  Spawn();
-        //}
-    //}
-
 
     // Start is called before the first frame update
     void Start()
@@ -54,32 +30,14 @@ public class Player : MonoBehaviour
         rb.velocity = moveInput * runSpeed;
     }
 
-    void Spawn()
-    {
-        if (sceneSpawner == 1)
-        {
-            transform.position = new Vector3(2.99f, -3.93f, 0f);
-        }
-        if (sceneSpawner == 2)
-        {
-            transform.position = new Vector3(15.02f, -3.93f, 0f);
-        }
-        if (sceneSpawner == 3)
-        {
-            transform.position = new Vector3(-6.02f, -3.93f, 0f);
-        }
-        if(sceneSpawner == 4)
-        {
-            transform.position = new Vector3(9f, -3.93f, 0f);
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.tag == "Old Lady")
         {
+            Debug.Log("This runs!");
             SceneManager.LoadScene("Old Lady's house");
             sceneSpawner = 1;
+            Debug.Log(sceneSpawner);
         }
         if (trigger.gameObject.tag == "Kid")
         {
@@ -99,8 +57,28 @@ public class Player : MonoBehaviour
         if (trigger.gameObject.tag == "Neighborhood")
         {
             SceneManager.LoadScene("Neighborhood");
-            sceneSpawner = 0;
         }
+        if (trigger.gameObject.tag == "Spawner")
+        {
+            if (sceneSpawner == 1)
+            {
+                Debug.Log("This runs!");
+                transform.position = new Vector3(2.99f, -3.93f, 0f);
+            }
+            if (sceneSpawner == 2)
+            {
+                transform.position = new Vector3(15.02f, -3.93f, 0f);
+            }
+            if (sceneSpawner == 3)
+            {
+                transform.position = new Vector3(-6.02f, -3.93f, 0f);
+            }
+            if (sceneSpawner == 4)
+            {
+                transform.position = new Vector3(9f, -3.93f, 0f);
+            }
+        }
+        
     }
 
 }
