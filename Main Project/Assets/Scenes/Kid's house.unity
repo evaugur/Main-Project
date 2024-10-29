@@ -957,7 +957,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374631841}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -5935,6 +5935,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5183923757416156069, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183923757416156069, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
