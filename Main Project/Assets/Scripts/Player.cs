@@ -34,25 +34,23 @@ public class Player : MonoBehaviour
     {
         if (trigger.gameObject.tag == "Old Lady")
         {
-            Debug.Log("This runs!");
             SceneManager.LoadScene("Old Lady's house");
-            sceneSpawner = 1;
-            Debug.Log(sceneSpawner);
+            Spawner.sceneSpawner = 1;
         }
         if (trigger.gameObject.tag == "Kid")
         {
             SceneManager.LoadScene("Kid's house");
-            sceneSpawner = 2;
+            Spawner.sceneSpawner = 2;
         }
         if (trigger.gameObject.tag == "Business Dad")
         {
             SceneManager.LoadScene("Business Dad's house");
-            sceneSpawner = 3;
+            Spawner.sceneSpawner = 3;
         }
         if (trigger.gameObject.tag == "Gamer")
         {
             SceneManager.LoadScene("Gamer Bro's house");
-            sceneSpawner = 4;
+            Spawner.sceneSpawner = 4;
         }
         if (trigger.gameObject.tag == "Neighborhood")
         {
@@ -60,20 +58,20 @@ public class Player : MonoBehaviour
         }
         if (trigger.gameObject.tag == "Spawner")
         {
-            if (sceneSpawner == 1)
+            if (Spawner.sceneSpawner == 1)
             {
                 Debug.Log("This runs!");
                 transform.position = new Vector3(2.99f, -3.93f, 0f);
             }
-            if (sceneSpawner == 2)
+            if (Spawner.sceneSpawner == 2)
             {
                 transform.position = new Vector3(15.02f, -3.93f, 0f);
             }
-            if (sceneSpawner == 3)
+            if (Spawner.sceneSpawner == 3)
             {
                 transform.position = new Vector3(-6.02f, -3.93f, 0f);
             }
-            if (sceneSpawner == 4)
+            if (Spawner.sceneSpawner == 4)
             {
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
