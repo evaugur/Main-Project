@@ -76,6 +76,10 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
         }
+        if (trigger.gameObject.tag == "Mom dialogue" && Input.GetButtonDown("Submit"))
+        {
+
+        }
         
     }
 
