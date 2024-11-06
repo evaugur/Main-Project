@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] float runSpeed = 5f;
     private Rigidbody2D rb;
+    private bool hasPlayer = false;
 
     private Scene scene;
 
@@ -22,9 +23,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (hasPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("This one works");
+            Debug.Log("This runs!");
+            DialogueTrigger.instance.TriggerDialogue();
         }
     }
 
@@ -79,10 +81,17 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
         }
-        if (trigger.gameObject.tag == "Dialogue" && Input.GetKeyDown(KeyCode.E))
+        if (trigger.gameObject.tag == "Dialogue")
         {
-            Debug.Log("Works");
-            DialogueTrigger.instance.TriggerDialogue();
+            hasPlayer = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.tag == "Dialogue")
+        {
+            hasPlayer = false;
         }
     }
 
