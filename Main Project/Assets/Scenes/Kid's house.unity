@@ -5445,7 +5445,7 @@ GameObject:
   - component: {fileID: 1338264166}
   m_Layer: 0
   m_Name: Dialogue Trigger
-  m_TagString: Mom dialogue
+  m_TagString: Dialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5463,8 +5463,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Mom
+    sentences:
+    - "Since you\u2019re doing nothing, why don\u2019t you pop on to your neighbor\u2019s
+      houses to see if they need anything?"
 --- !u!61 &1338264167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5845,6 +5847,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349985934}
   m_CullTransparentMesh: 1
+--- !u!1 &1367221473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1367221475}
+  - component: {fileID: 1367221474}
+  m_Layer: 0
+  m_Name: Dialogue Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1367221474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367221473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9072b1801171bf540abcf6f2d7c06e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1345366885}
+  dialogueText: {fileID: 1632793926}
+--- !u!4 &1367221475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367221473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7687533, y: 1.8448867, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405771700
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,3 +9322,4 @@ SceneRoots:
   - {fileID: 950410141}
   - {fileID: 1496413308}
   - {fileID: 1338264169}
+  - {fileID: 1367221475}

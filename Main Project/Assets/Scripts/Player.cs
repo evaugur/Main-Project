@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         {
             if (Spawner.sceneSpawner == 1)
             {
-                Debug.Log("This runs!");
                 transform.position = new Vector3(2.99f, -3.93f, 0f);
             }
             if (Spawner.sceneSpawner == 2)
@@ -76,9 +75,9 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
         }
-        if (trigger.gameObject.tag == "Mom dialogue" && Input.GetButtonDown("Submit"))
+        if (trigger.gameObject.tag == "Dialogue" && Input.GetButtonDown("Submit"))
         {
-
+            // DialogueTrigger.TriggerDialogue();
         }
         
     }
