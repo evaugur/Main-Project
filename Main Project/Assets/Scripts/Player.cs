@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("This one works");
+        }
     }
 
     private void Move()
@@ -75,11 +79,11 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
         }
-        if (trigger.gameObject.tag == "Dialogue" && Input.GetButtonDown("Submit"))
+        if (trigger.gameObject.tag == "Dialogue" && Input.GetKeyDown(KeyCode.E))
         {
-            // DialogueTrigger.TriggerDialogue();
+            Debug.Log("Works");
+            DialogueTrigger.instance.TriggerDialogue();
         }
-        
     }
 
 }

@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
+        Debug.Log(dialogue.name);
         DisplayNextSentence();
     }
 
@@ -37,14 +37,15 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
+     
         string sentence = sentences.Dequeue();
+        Debug.Log(sentence);
         dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
-
+        Debug.Log("End Dialogue");
     }
 
 }
