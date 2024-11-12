@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI nameText;
     [SerializeField] public TextMeshProUGUI dialogueText;
+    [SerializeField] public GameObject dialogueBox;
 
     private Queue<string> sentences;
 
@@ -18,16 +19,24 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-        nameText.text = dialogue.name;
-
-        sentences.Clear();
-
-        foreach(string sentence in dialogue.sentences)
+        Player.rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        if (dialogueBox.activeSelf == true)
         {
-            sentences.Enqueue(sentence);
+            DisplayNextSentence();
         }
-        Debug.Log(dialogue.name);
-        DisplayNextSentence();
+        else
+        {
+            dialogueBox.SetActive(true);
+            nameText.text = dialogue.name;
+
+            sentences.Clear();
+
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+            DisplayNextSentence();
+        }
     }
 
     public void DisplayNextSentence()
@@ -37,15 +46,15 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-     
+
         string sentence = sentences.Dequeue();
-        Debug.Log(sentence);
         dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
-        Debug.Log("End Dialogue");
+        dialogueBox.SetActive(false);
+        Player.rb.constraints = ~RigidbodyConstraints2D.FreezePosition;
     }
 
 }

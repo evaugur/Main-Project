@@ -11,6 +11,7 @@ TagManager:
   - Neighborhood
   - Spawner
   - Dialogue
+  - Dialogue Box
   layers:
   - Default
   - TransparentFX

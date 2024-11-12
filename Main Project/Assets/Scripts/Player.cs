@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] float runSpeed = 5f;
-    private Rigidbody2D rb;
+    public static Rigidbody2D rb;
     private bool hasPlayer = false;
 
     private Scene scene;
@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         Move();
         if (hasPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("This runs!");
             DialogueTrigger.instance.TriggerDialogue();
         }
     }
