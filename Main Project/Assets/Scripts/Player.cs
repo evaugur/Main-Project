@@ -9,9 +9,13 @@ public class Player : MonoBehaviour
 
     [SerializeField] float runSpeed = 5f;
     public static Rigidbody2D rb;
-    private bool hasPlayer = false;
+    private bool dialogueHasPlayer = false;
+    private bool itemHasPlayer = false;
+    private GameObject item;
 
     private Scene scene;
+
+    private List<IPickupable> inventory = new List<IPickupable>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +27,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        if (hasPlayer && Input.GetKeyDown(KeyCode.E))
+        if (dialogueHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
             DialogueTrigger.instance.TriggerDialogue();
+        }
+        if(itemHasPlayer && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(inventory.IndexOf(item.gameObject.GetComponent<IPickupable>()));
+            inventory.Add(item.gameObject.GetComponent<IPickupable>());
+            Debug.Log(inventory.IndexOf(item.gameObject.GetComponent<IPickupable>()));
+            item.gameObject.GetComponent<IPickupable>().Pickup();
         }
     }
 
@@ -34,6 +45,8 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.velocity = moveInput * runSpeed;
     }
+
+
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
@@ -82,7 +95,12 @@ public class Player : MonoBehaviour
         }
         if (trigger.gameObject.tag == "Dialogue")
         {
-            hasPlayer = true;
+            dialogueHasPlayer = true;
+        }
+        if(trigger.gameObject.tag == "Item")
+        {
+            itemHasPlayer = true;
+            item = trigger.gameObject;
         }
     }
 
@@ -90,7 +108,11 @@ public class Player : MonoBehaviour
     {
         if (trigger.gameObject.tag == "Dialogue")
         {
-            hasPlayer = false;
+            dialogueHasPlayer = false;
+        }
+        if (trigger.gameObject.tag == "Item")
+        {
+            itemHasPlayer = false;
         }
     }
 
