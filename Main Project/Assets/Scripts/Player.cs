@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     public static Rigidbody2D rb;
     private bool dialogueHasPlayer = false;
-    private bool itemHasPlayer = false;
-    private GameObject item;
 
     private Scene scene;
 
@@ -28,11 +26,6 @@ public class Player : MonoBehaviour
         if (dialogueHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
             DialogueTrigger.instance.TriggerDialogue();
-        }
-        if(itemHasPlayer && Input.GetKeyDown(KeyCode.E))
-        {
-            Inventory.inventory.Add(item.gameObject.GetComponent<IPickupable>());
-            item.gameObject.GetComponent<IPickupable>().Pickup();
         }
     }
 
@@ -93,11 +86,6 @@ public class Player : MonoBehaviour
         {
             dialogueHasPlayer = true;
         }
-        if(trigger.gameObject.tag == "Item")
-        {
-            itemHasPlayer = true;
-            item = trigger.gameObject;
-        }
     }
 
     void OnTriggerExit2D(Collider2D trigger)
@@ -105,10 +93,6 @@ public class Player : MonoBehaviour
         if (trigger.gameObject.tag == "Dialogue")
         {
             dialogueHasPlayer = false;
-        }
-        if (trigger.gameObject.tag == "Item")
-        {
-            itemHasPlayer = false;
         }
     }
 

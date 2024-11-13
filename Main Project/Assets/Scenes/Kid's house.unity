@@ -7230,7 +7230,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793771621}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -7280,6 +7280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f157b7aa53ade4fbe10f73023c0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specificTrigger: 2
 --- !u!1 &1794518637
 GameObject:
   m_ObjectHideFlags: 0
