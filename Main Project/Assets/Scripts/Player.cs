@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
 
     private Scene scene;
 
-    private List<IPickupable> inventory = new List<IPickupable>();
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +31,7 @@ public class Player : MonoBehaviour
         }
         if(itemHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(inventory.IndexOf(item.gameObject.GetComponent<IPickupable>()));
-            inventory.Add(item.gameObject.GetComponent<IPickupable>());
-            Debug.Log(inventory.IndexOf(item.gameObject.GetComponent<IPickupable>()));
+            Inventory.inventory.Add(item.gameObject.GetComponent<IPickupable>());
             item.gameObject.GetComponent<IPickupable>().Pickup();
         }
     }
