@@ -7,11 +7,7 @@ public class Items : MonoBehaviour, IPickupable
 {
 
     private bool itemHasPlayer = false;
-    public static Items instance;
-    [SerializeField] private int specificTrigger;
-    private int oldLady = 1;
-    private int businessDad = 2;
-    private int gameBro = 3;
+    private Items instance;
 
     // Set the trigger as active only if the dialogue has happened for that specific item
 
@@ -23,23 +19,21 @@ public class Items : MonoBehaviour, IPickupable
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
-
     void Update()
     {
-        if (specificTrigger == businessDad || specificTrigger ==  oldLady || specificTrigger == gameBro)
-        {
-            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        }
+        //if (specificTrigger == businessDad || specificTrigger ==  oldLady || specificTrigger == gameBro)
+        //{
+        //    this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        //}
         if (itemHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
             this.gameObject.GetComponent<IPickupable>().Pickup();
