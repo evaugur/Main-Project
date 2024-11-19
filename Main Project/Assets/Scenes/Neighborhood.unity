@@ -35852,7 +35852,7 @@ GameObject:
   - component: {fileID: 1730646854}
   - component: {fileID: 1730646853}
   - component: {fileID: 1730646857}
-  - component: {fileID: 1730646856}
+  - component: {fileID: 1730646858}
   m_Layer: 0
   m_Name: FIX
   m_TagString: Untagged
@@ -35948,19 +35948,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730646856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730646852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57f157b7aa53ade4fbe10f73023c0b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specificTrigger: 1
 --- !u!61 &1730646857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35968,7 +35955,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730646852}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -35993,7 +35980,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.563921, y: -0.11278403}
+  m_Offset: {x: 0.34429216, y: -0.5319588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -36004,8 +35991,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.252842, y: 3.2303045}
+  m_Size: {x: 2.043254, y: 2.391955}
   m_EdgeRadius: 0
+--- !u!114 &1730646858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730646852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289a9f89df64a4543b7cc81e55753f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1737601152
 GameObject:
   m_ObjectHideFlags: 0
@@ -36784,7 +36783,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.4937344, g: 0.7174827, b: 0.78113204, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -50334,9 +50333,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2834557627050076498, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1760258008}
+    - target: {fileID: -2834557627050076498, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
+      propertyPath: xMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2834557627050076498, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
+      propertyPath: xMin
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 3547868551590059453, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.84
+      value: -21.8
       objectReference: {fileID: 0}
     - target: {fileID: 3547868551590059453, guid: ed714fb0a7903d142a61b8c6e53bec68, type: 3}
       propertyPath: m_LocalPosition.y

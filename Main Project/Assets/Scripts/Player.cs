@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public static Rigidbody2D rb;
     private bool dialogueHasPlayer = false;
 
+    [SerializeField] private Camera cam;
+    [SerializeField] float xMin;
+    [SerializeField] float xMax;
+
     private Scene scene;
 
     // Start is called before the first frame update
@@ -23,9 +27,27 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        NeighborhoodCameraPosition();
+        TriggerDialogue();
+    }
+
+    private void TriggerDialogue()
+    {
         if (dialogueHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
             DialogueTrigger.instance.TriggerDialogue();
+        }
+    }
+
+    private void NeighborhoodCameraPosition()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Neighborhood") && this.transform.position.x <= xMin)
+        {
+            cam.transform.position = new Vector3(xMin, cam.transform.position.y, cam.transform.position.z);
+        }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Neighborhood") && this.transform.position.x >= xMax)
+        {
+            cam.transform.position = new Vector3(xMax, cam.transform.position.y, cam.transform.position.z);
         }
     }
 

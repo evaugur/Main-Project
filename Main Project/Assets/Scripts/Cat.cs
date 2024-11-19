@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class Cat : Items
 {
-    private Cat instance;
+    public static Items instance;
+
+    [SerializeField] private GameObject startingDialogue;
+    [SerializeField] private GameObject afterDialogue;
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if (gameObject.activeSelf == false)
+        {
+            startingDialogue.SetActive(false);
+            afterDialogue.SetActive(true);
         }
     }
 }
