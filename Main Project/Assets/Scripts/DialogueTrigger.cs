@@ -7,7 +7,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public Dialogue dialogue;
     public static DialogueTrigger instance;
-    [SerializeField] public static string characterName;
 
     void Awake()
     {
@@ -24,6 +23,11 @@ public class DialogueTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 
 }

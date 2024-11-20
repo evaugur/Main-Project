@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Frog : Items
 {
     public static Items instance;
-
-    private int flipped = 0;
 
     void Awake()
     {
@@ -18,15 +19,6 @@ public class Frog : Items
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D trigger)
-    {
-        if (gameObject.activeSelf == false && trigger.gameObject.GetComponent<DialogueTrigger>().characterName == "Old Lady" && flipped == 0)
-        {
-            trigger.gameObject.SetActive(!gameObject.activeSelf);
-            flipped = 1;
         }
     }
 }

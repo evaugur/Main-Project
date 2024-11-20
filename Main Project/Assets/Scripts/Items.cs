@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.Progress;
 
 public class Items : MonoBehaviour, IPickupable
 {
+    public static Items instance;
 
     private bool itemHasPlayer = false;
+
+    private int flipped = 0;
 
     public void Pickup()
     {
@@ -16,8 +20,17 @@ public class Items : MonoBehaviour, IPickupable
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    void Update()
+    public void Update()
     {
         if (itemHasPlayer && Input.GetKeyDown(KeyCode.E))
         {

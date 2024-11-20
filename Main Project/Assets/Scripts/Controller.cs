@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : Items
 {
     public static Items instance;
 
-    [SerializeField] private GameObject startingDialogue;
-    [SerializeField] private GameObject afterDialogue;
+    private int flipped = 0;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -21,12 +21,12 @@ public class Controller : Items
         }
     }
 
-    void Update()
+    void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (gameObject.activeSelf == false)
+        if (gameObject.activeSelf == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Gamer Bro's house") && trigger.gameObject.tag == "Dialogue" && flipped == 0)
         {
-            startingDialogue.SetActive(false);
-            afterDialogue.SetActive(true);
+            trigger.gameObject.SetActive(!gameObject.activeSelf);
+            flipped = 1;
         }
     }
 }

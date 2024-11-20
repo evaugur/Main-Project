@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System.Runtime.CompilerServices;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] float xMin;
     [SerializeField] float xMax;
 
-    private Scene scene;
+    private int flipped = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +109,29 @@ public class Player : MonoBehaviour
         {
             dialogueHasPlayer = true;
         }
+
+        if (checkFrog() >= 1 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Business Dad's house") && trigger.gameObject.tag == "Dialogue" && flipped == 0)
+        {
+            if (!DialogueTrigger.instance.gameObject.activeSelf)
+            {
+                DialogueTrigger.instance.gameObject.gameObject.SetActive(true);
+            }
+            else
+            {
+                DialogueTrigger.instance.gameObject.gameObject.SetActive(false);
+            }
+            flipped = 1;
+        }
+    }
+
+    public int checkFrog()
+    {
+        int howManyFrog = 0;
+        foreach (Frog frog in Inventory.inventory)
+        {
+            howManyFrog++;
+        }
+        return howManyFrog;
     }
 
     void OnTriggerExit2D(Collider2D trigger)
