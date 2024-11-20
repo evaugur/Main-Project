@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class Cat : Items
 {
     public static Items instance;
-
-    private int flipped = 0;
-
-    [SerializeField] private GameObject startingDialogue;
-    [SerializeField] private GameObject afterDialogue;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -21,15 +16,6 @@ public class Cat : Items
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D trigger)
-    {
-        if (gameObject.activeSelf == false && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Old Lady's house") && trigger.gameObject.tag == "Dialogue" && flipped == 0)
-        {
-            trigger.gameObject.SetActive(!gameObject.activeSelf);
-            flipped = 1;
         }
     }
 }

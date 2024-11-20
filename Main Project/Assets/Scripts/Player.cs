@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] float xMin;
     [SerializeField] float xMax;
 
-    private int flipped = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -105,22 +103,22 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(9f, -3.93f, 0f);
             }
         }
-        if (trigger.gameObject.tag == "Dialogue")
+        if (trigger.gameObject.tag == "Starting Dialogue" || trigger.gameObject.tag == "After Dialogue" || trigger.gameObject.tag == "Dialogue")
         {
             dialogueHasPlayer = true;
         }
 
-        if (checkFrog() >= 1 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Business Dad's house") && trigger.gameObject.tag == "Dialogue" && flipped == 0)
+        if (checkFrog() >= 1 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Business Dad's house") && trigger.gameObject.tag == "Starting Dialogue")
         {
-            if (!DialogueTrigger.instance.gameObject.activeSelf)
-            {
-                DialogueTrigger.instance.gameObject.gameObject.SetActive(true);
-            }
-            else
-            {
-                DialogueTrigger.instance.gameObject.gameObject.SetActive(false);
-            }
-            flipped = 1;
+            DialogueSwitch.SwitchDialogue();
+        }
+        if (checkCat() >= 1 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Old Lady's house") && trigger.gameObject.tag == "Starting Dialogue")
+        {
+            DialogueSwitch.SwitchDialogue();
+        }
+        if (checkController() >= 1 && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Gamer Bro's house") && trigger.gameObject.tag == "Starting Dialogue")
+        {
+            DialogueSwitch.SwitchDialogue();
         }
     }
 
@@ -134,9 +132,29 @@ public class Player : MonoBehaviour
         return howManyFrog;
     }
 
+    public int checkCat()
+    {
+        int howManyCat = 0;
+        foreach (Cat cat in Inventory.inventory)
+        {
+            howManyCat++;
+        }
+        return howManyCat;
+    }
+
+    public int checkController()
+    {
+        int howManyController = 0;
+        foreach (Controller controller in Inventory.inventory)
+        {
+            howManyController++;
+        }
+        return howManyController;
+    }
+
     void OnTriggerExit2D(Collider2D trigger)
     {
-        if (trigger.gameObject.tag == "Dialogue")
+        if (trigger.gameObject.tag == "Starting Dialogue" || trigger.gameObject.tag == "After Dialogue" || trigger.gameObject.tag == "Dialogue")
         {
             dialogueHasPlayer = false;
         }

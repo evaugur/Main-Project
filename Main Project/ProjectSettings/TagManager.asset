@@ -12,6 +12,8 @@ TagManager:
   - Spawner
   - Dialogue
   - Item
+  - Starting Dialogue
+  - After Dialogue
   layers:
   - Default
   - TransparentFX

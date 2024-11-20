@@ -8,9 +8,9 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public static DialogueTrigger instance;
 
-    void Awake()
+    void Start()
     {
-        if (instance == null)
+        if (instance == null || instance.gameObject.tag == "Starting Dialogue" && gameObject.tag == "After Dialogue")
         {
             instance = this;
         }
