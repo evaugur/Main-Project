@@ -125,9 +125,12 @@ public class Player : MonoBehaviour
     public int checkFrog()
     {
         int howManyFrog = 0;
-        foreach (Frog frog in Inventory.inventory)
+        foreach (Items item in Inventory.inventory)
         {
-            howManyFrog++;
+            if (item.GetType() == typeof(Frog))
+            {
+                howManyFrog++;
+            }
         }
         return howManyFrog;
     }
@@ -135,9 +138,12 @@ public class Player : MonoBehaviour
     public int checkCat()
     {
         int howManyCat = 0;
-        foreach (Cat cat in Inventory.inventory)
+        foreach (Items item in Inventory.inventory)
         {
-            howManyCat++;
+            if (item.GetType() == typeof(Cat))
+            {
+                howManyCat++;
+            }
         }
         return howManyCat;
     }
@@ -145,9 +151,12 @@ public class Player : MonoBehaviour
     public int checkController()
     {
         int howManyController = 0;
-        foreach (Controller controller in Inventory.inventory)
+        foreach (Items item in Inventory.inventory)
         {
-            howManyController++;
+            if (item.GetType() == typeof(Controller))
+            {
+                howManyController++;
+            }
         }
         return howManyController;
     }

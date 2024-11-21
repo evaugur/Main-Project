@@ -10,6 +10,7 @@ public class Items : MonoBehaviour, IPickupable
 
     public void Pickup()
     {
+        Debug.Log("Pickup called");
         Inventory.inventory.Add(this.gameObject.GetComponent<IPickupable>());
         gameObject.SetActive(false);
     }
@@ -18,6 +19,7 @@ public class Items : MonoBehaviour, IPickupable
     {
         if (itemHasPlayer && Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Got input");
             this.gameObject.GetComponent<IPickupable>().Pickup();
         }
     }
@@ -26,6 +28,7 @@ public class Items : MonoBehaviour, IPickupable
     {
         if (trigger.gameObject.tag == "Player")
         {
+            Debug.Log("Entered trigger");
             itemHasPlayer = true;
         }
     }
