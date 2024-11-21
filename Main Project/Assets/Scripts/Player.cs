@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Runtime.CompilerServices;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
 
     [SerializeField] float runSpeed = 5f;
     public static Rigidbody2D rb;
-    private bool dialogueHasPlayer = false;
+    public static bool dialogueHasPlayer = false;
 
     [SerializeField] private Camera cam;
     [SerializeField] float xMin;
     [SerializeField] float xMax;
 
+    [SerializeField] private GameObject demo;
+    [SerializeField] public static GameObject demoText;
+
     // Start is called before the first frame update
     void Start()
     {
+        demoText = demo;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -60,6 +65,10 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trigger)
     {
+        if (trigger.gameObject.tag == "Dialogue")
+        {
+            DialogueSwitch.MoveOn();
+        }
         if (trigger.gameObject.tag == "Old Lady")
         {
             SceneManager.LoadScene("Old Lady's house");
@@ -80,7 +89,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("Gamer Bro's house");
             Spawner.sceneSpawner = 4;
         }
-        if (trigger.gameObject.tag == "Neighborhood")
+        if (trigger.gameObject.tag == "Neighborhood" && DialogueSwitch.momDialogue >= 1)
         {
             SceneManager.LoadScene("Neighborhood");
         }
@@ -166,6 +175,15 @@ public class Player : MonoBehaviour
         if (trigger.gameObject.tag == "Starting Dialogue" || trigger.gameObject.tag == "After Dialogue" || trigger.gameObject.tag == "Dialogue")
         {
             dialogueHasPlayer = false;
+        }
+    }
+
+    public static void InitiateGameover()
+    {
+        if(dialogueHasPlayer && Input.GetKeyDown(KeyCode.E))
+        {
+            demoText.SetActive(true);
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
     }
 

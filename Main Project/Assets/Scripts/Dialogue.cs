@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Got from https://www.youtube.com/watch?v=_nRzoTzeyxU
 
 [System.Serializable]
 public class Dialogue

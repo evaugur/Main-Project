@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Got the basic structure from https://www.youtube.com/watch?v=_nRzoTzeyxU
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI nameText;

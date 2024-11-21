@@ -20,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    // Got from https://www.youtube.com/watch?v=_nRzoTzeyxU
+
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
